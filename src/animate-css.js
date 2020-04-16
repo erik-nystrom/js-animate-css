@@ -22,7 +22,7 @@ class AnimateCSS {
 
             var key = (i == 'stylingStart' ? 'start' : 'end');
             var ignore = ['cssText', 'length', 'parentRule', 'item', 'getPropertyValue', 'getPropertyPriority', 'setProperty', 'removeProperty'];
-            console.log(style.sheet);
+            
             for (const i in style.sheet.cssRules[0].style) {
                 if(parseInt(i) == i || ignore.indexOf(i) > -1 || style.sheet.cssRules[0].style[i] == '') {
                     continue;
