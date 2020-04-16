@@ -33,7 +33,7 @@ Once that's done, you can set the animation position as a percentage:
     thing.animateTo(.5);
 </script>
 ```
-This will interpolate CSS property values between your defined start and end stylings, and update the element's `style` attribute accordingly.
+This will interpolate numerical CSS property values between your defined start and end stylings, and update the element's `style` attribute accordingly.
 
 In this example, setting `thing.animateTo(.5);` would result in calculated CSS of `style="top: 50px; transform: rotate(90deg);"`. Setting `thing.animateTo(.33);` would result in `style="top: 33px; transform: rotate(59.4deg);"`. And so on.
 
