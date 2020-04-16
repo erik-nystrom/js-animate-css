@@ -1,5 +1,12 @@
 class AnimateCSS {
 
+    /**
+     * Constructor. Pass in a DOM element and a starting percentage.
+     * 
+     * @param DOMelement element 
+     * @param Float percentage 
+     * @returns AnimateCSS object
+     */
     constructor(element, percentage) {
         
         this.element = element;
@@ -116,6 +123,12 @@ class AnimateCSS {
         
     }
 
+    /**
+     * Parse the numerical values from an r/g/b/a color string
+     * 
+     * @param String value 
+     * @returns Array object
+     */
     parseColor(value) {
 
         value = value
@@ -141,6 +154,12 @@ class AnimateCSS {
         
     };
 
+    /**
+     * Parse the numerical value from a transform: rotate(Xdeg)
+     * 
+     * @param String rotate(Xdeg) value
+     * @returns Float degree value 
+     */
     parseDegrees(value) {
 
         value = value
@@ -154,6 +173,13 @@ class AnimateCSS {
 
     }
 
+    /**
+     * Returns the range between a given start and end value.
+     * 
+     * @param String start Starting value 
+     * @param String end Ending value
+     * @returns Object containing units, start, end, range, and multiplier (negative is the value decreases during the transition)
+     */
     parseRange(start, end) {
 
         var units = '';
@@ -218,6 +244,12 @@ class AnimateCSS {
 
     }
 
+    /**
+     * Calculate a given CSS value given a range of values and a percentage.
+     * 
+     * @param Object range A range calculated by parseRange
+     * @param Float percentage A percentage between 0 and 1
+     */
     calculateAnimateTo(range, percentage) {
 
         let styles = '';
@@ -255,6 +287,11 @@ class AnimateCSS {
 
     }
 
+    /**
+     * Animate the element to a given percentage point
+     * 
+     * @param Float percentage The percentage to animate to. 0 for start, 1 for end, anywhere inbetween for any other step in the animation
+     */
     animateTo(percentage) {
 
         var styles = {};
