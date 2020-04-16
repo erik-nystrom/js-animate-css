@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>JS-animate-CSS test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script type="text/javascript" src="../src/animate-css.js"></script>
+
+    </head>
+
+    <body>
+        <main>
+
+            <div id="box-container"
+                data-starting-styles="transform: scale(1)" 
+                data-ending-styles="transform: scale(.75)">
+                <div id="box" 
+                    class="box" 
+                    data-starting-styles="transform: rotate(0deg); background-color: rgba(128,128,128,0.5)" 
+                    data-ending-styles="transform: rotate(90deg); background-color: rgba(0,128,0,1)"></div>
+            </div>
+
+            <input type="range" id="percentage" name="percentage" min="0" max="1" step=".01" />
+
+        </main>
+    </body>
+
+    <script type="text/javascript">
+
+        var box = new AnimateCSS(document.getElementById('box'));
+        var boxContainer = new AnimateCSS(document.getElementById('box-container'));
+
+        function updateBoxCSS() {
+            box.animateTo(document.getElementById('percentage').value);
+            boxContainer.animateTo(document.getElementById('percentage').value);
+            window.requestAnimationFrame(updateBoxCSS);
+        }
+
+        window.requestAnimationFrame(updateBoxCSS);
+
+    </script>
+
+</html>
