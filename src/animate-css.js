@@ -103,17 +103,17 @@ class AnimateCSS {
                     if(typeof transforms.start[i] == 'object') {
                         ranges[i] = {};
                         for(const j in transforms.start[i]) {
-                            var transformRangesArray = this.parseRange(transforms.start[i][j], transforms.end[i][j]);
+                            var transformRangesArray = this.calculateRange(transforms.start[i][j], transforms.end[i][j]);
                             ranges[i][j] = transformRangesArray;
                         }
                     } else {
-                        var transformRanges = this.parseRange(transforms.start[i], transforms.end[i]);
+                        var transformRanges = this.calculateRange(transforms.start[i], transforms.end[i]);
                         ranges[i] = transformRanges;
                     }
                 }
 
             } else {
-                var ranges = this.parseRange(this.styles.start[i], this.styles.end[i]);
+                var ranges = this.calculateRange(this.styles.start[i], this.styles.end[i]);
             }
 
             this.ranges[i] = ranges;
@@ -180,7 +180,7 @@ class AnimateCSS {
      * @param String end Ending value
      * @returns Object containing units, start, end, range, and multiplier (negative is the value decreases during the transition)
      */
-    parseRange(start, end) {
+    calculateRange(start, end) {
 
         var units = '';
         var multiplier = 1;
