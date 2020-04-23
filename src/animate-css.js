@@ -189,6 +189,10 @@ class AnimateCSS {
             units = '%';
         } else if(start.indexOf('deg') >= 0) {
             units = 'deg';
+        } else if(start.indexOf('em') >= 0) {
+            units = 'em';
+        } else if(start.indexOf('rem') >= 0) {
+            units = 'rem';
         } else if(start.indexOf('px') >= 0) {
             units = 'px';
         } else if(start.indexOf('rgb') >= 0 || start.indexOf('rgba') >= 0) {
